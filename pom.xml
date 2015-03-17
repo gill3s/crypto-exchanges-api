@@ -1,14 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.opsunv</groupId>
-  <artifactId>cryptsy-api</artifactId>
+    <groupId>com.powsoft</groupId>
+    <artifactId>crypto-exchanges-api</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <name>cryptsy-api</name>
-  <url>http://maven.apache.org</url>
+    <name>crypto-exchanges-api</name>
+    <url>http://pow-soft.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,7 +18,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+        <version>4.11</version>
       <scope>test</scope>
     </dependency>
     

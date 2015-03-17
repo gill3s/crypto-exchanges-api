@@ -1,41 +1,26 @@
-cryptsy-api
-===========
+crypto-exchanges-api
+====================
 
-An implementation of the Cryptsy API in Java.
+Crypto-exchanges-api is an implementation of crypto exchanges API in Java. Originally forked from [cryptsy-api](https://github.com/opsun/cryptsy-api)
+ this project provides a generic interface to multiple crypto exchange apis
 
 Example Usage
-===========
+=============
 
-To use it just:
-
-```java
-CryptsyApi api = new MixedCryptsyApi("publick key","private key");
-api.exec(new XXXXReuqest());
-```
-
-If you only want to use public api
+Here a simple example of a public API call on Cryptsy
 
 ```java
-CryptsyApi api = new PublicCryptsyApi();
-api.exec(new XXXXRequest());
+PublicExchangeApi api = CryptoExchangeFactory.getPublicExchangeApi(ExchangeEnum.CRYPTSY);
+Market market = api.getMarket("zet","btc");
 ```
 
-Or Authenticated api
+## Roadmap
 
-```java
-CryptsyApi api = new AuthenticatedCryptsyApi("publick key","private key");
-api.exec(new XXXXRequest());
-```
+* Add other exchanges implementations for public API (Bittrex and Poloniex)
+* Add authenticated api access for cryptsy, bittrex and poloniex
 
-Donations ;)
-===========
+## Contact
 
- BTC: 1Bg5ZZjQmdJThTjS9X5a4GyBaFQGsBvkJF
- 
-DOGE: DFbc5tgGmj6nvVgTg3EcURsk9oN4SxGXe9
+For bugs and/or issues: create a new issue on GitHub.
 
-
-License
-===========
-
-MIT License
+Other questions or comments: gilles.cadignan@gmail.com
