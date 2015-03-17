@@ -16,8 +16,8 @@ Market market = api.getMarket("zet","btc");
 
 ## Roadmap
 
-* Add other exchanges implementations for public API (Bittrex and Poloniex)
-* Add authenticated api access for cryptsy, bittrex and poloniex
+* Add other exchanges implementations for public API
+* Add authenticated api access for exchanges
 
 ## Contact
 
