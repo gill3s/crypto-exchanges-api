@@ -9,6 +9,7 @@
 
 package com.powsoft.exchanges;
 
+import com.powsoft.exchanges.bittrex.PublicBittrexApi;
 import com.powsoft.exchanges.cryptsy.PublicCryptsyApi;
 import com.powsoft.exchanges.model.ExchangeEnum;
 
@@ -25,15 +26,14 @@ public class CryptoExchangeFactory {
      * @return
      * @throws ExchangeException
      */
-    public static PublicExchangeApi getPublicExchangeApi(ExchangeEnum exchangeEnum) throws ExchangeException {
+    public static PublicExchangeApi getPublicExchangeApi(ExchangeEnum exchangeEnum) {
         switch (exchangeEnum) {
             case CRYPTSY:
                 return new PublicCryptsyApi();
-            /*case BITTREX:
-                return new Bittrex();
-            */
-            default:
-                throw new ExchangeException("Cannot create Exchange");
+            case BITTREX:
+                return new PublicBittrexApi();
+
         }
+        return null;
     }
 }

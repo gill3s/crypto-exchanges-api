@@ -1,7 +1,7 @@
 package com.powsoft.exchanges.cryptsy;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.powsoft.exchanges.cryptsy.utils.Assert;
+import com.powsoft.exchanges.utils.Assert;
 
 import java.io.IOException;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.powsoft.exchanges.cryptsy.utils;
+package com.powsoft.exchanges.utils;
 
 public abstract class Assert {
 	/**

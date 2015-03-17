@@ -1,6 +1,8 @@
 package com.powsoft.exchanges.cryptsy;
 
+import com.powsoft.exchanges.CryptoExchangeFactory;
 import com.powsoft.exchanges.ExchangeException;
+import com.powsoft.exchanges.PublicExchangeApi;
 import com.powsoft.exchanges.model.*;
 import org.junit.Test;
 
@@ -8,8 +10,8 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class PublicApiTest {
-    private PublicCryptsyApi api = new PublicCryptsyApi();
+public class CryptsyPublicApiTest {
+    private PublicExchangeApi api = CryptoExchangeFactory.getPublicExchangeApi(ExchangeEnum.CRYPTSY);
 
     @Test
     public void testGetExchangeName() throws ExchangeException {

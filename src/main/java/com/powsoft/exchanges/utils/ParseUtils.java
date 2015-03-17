@@ -1,4 +1,4 @@
-package com.powsoft.exchanges.cryptsy.utils;
+package com.powsoft.exchanges.utils;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

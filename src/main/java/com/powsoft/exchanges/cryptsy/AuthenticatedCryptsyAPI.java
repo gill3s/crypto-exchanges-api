@@ -2,9 +2,10 @@ package com.powsoft.exchanges.cryptsy;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.powsoft.exchanges.cryptsy.utils.Assert;
-import com.powsoft.exchanges.cryptsy.utils.ParseUtils;
-import com.powsoft.exchanges.cryptsy.utils.WebUtils;
+import com.powsoft.exchanges.model.ExchangeEnum;
+import com.powsoft.exchanges.utils.Assert;
+import com.powsoft.exchanges.utils.ParseUtils;
+import com.powsoft.exchanges.utils.WebUtils;
 
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
@@ -72,9 +73,9 @@ public class AuthenticatedCryptsyAPI extends AbstractCryptsyApi{
 		Map<String, String> header = new HashMap<String, String>();
 		header.put("Key", this.publicKey);
 		header.put("Sign", sign);
-		
-		return objectMapper.readTree(WebUtils.doPost(API_URL, data, header));
-	}
+
+        return objectMapper.readTree(WebUtils.doPost(API_URL, data, header, ExchangeEnum.CRYPTSY));
+    }
 	
 	/**
 	 * signed by a secret key according to HMAC-SHA512 method.

@@ -8,8 +8,8 @@ import com.powsoft.exchanges.cryptsy.request.MarketDataV2Request;
 import com.powsoft.exchanges.cryptsy.request.SingleMarketDataRequest;
 import com.powsoft.exchanges.cryptsy.response.MarketDataV2Response;
 import com.powsoft.exchanges.cryptsy.response.SingleMarketDataResponse;
-import com.powsoft.exchanges.cryptsy.utils.WebUtils;
 import com.powsoft.exchanges.model.*;
+import com.powsoft.exchanges.utils.WebUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class PublicCryptsyApi extends AbstractCryptsyApi implements PublicExchan
             map.putAll(params);
         }
         map.put("method", method);
-        return objectMapper.readTree(WebUtils.doGet(PUB_API, map));
+        return objectMapper.readTree(WebUtils.doGet(PUB_API, map, ExchangeEnum.CRYPTSY));
     }
 
     @Override

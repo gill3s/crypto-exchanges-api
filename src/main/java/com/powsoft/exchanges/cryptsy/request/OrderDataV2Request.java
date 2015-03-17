@@ -3,7 +3,7 @@ package com.powsoft.exchanges.cryptsy.request;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.powsoft.exchanges.cryptsy.CryptsyRequest;
 import com.powsoft.exchanges.cryptsy.response.OrderDataV2Response;
-import com.powsoft.exchanges.cryptsy.utils.ParseUtils;
+import com.powsoft.exchanges.utils.ParseUtils;
 
 /**
  * public API <b>orderdatav2</b><br>

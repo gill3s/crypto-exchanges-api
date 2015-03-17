@@ -6,9 +6,9 @@ import junit.framework.TestCase;
 import org.junit.Ignore;
 
 @Ignore
-public class AuthenticatedApiTest extends TestCase {
-	
-	//
+public class CryptsyAuthenticatedApiTest extends TestCase {
+
+    //
 	private AuthenticatedCryptsyAPI api = new AuthenticatedCryptsyAPI("public key", "private key");
 	
 	public void testGetinfo() throws Exception{

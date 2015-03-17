@@ -3,7 +3,7 @@ package com.powsoft.exchanges.cryptsy.request;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.powsoft.exchanges.cryptsy.CryptsyRequest;
 import com.powsoft.exchanges.cryptsy.response.SingleOrderDataResponse;
-import com.powsoft.exchanges.cryptsy.utils.ParseUtils;
+import com.powsoft.exchanges.utils.ParseUtils;
 
 import java.util.HashMap;
 import java.util.Iterator;

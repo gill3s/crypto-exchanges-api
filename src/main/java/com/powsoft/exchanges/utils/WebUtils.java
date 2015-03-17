@@ -1,4 +1,6 @@
-package com.powsoft.exchanges.cryptsy.utils;
+package com.powsoft.exchanges.utils;
+
+import com.powsoft.exchanges.model.ExchangeEnum;
 
 import javax.net.ssl.*;
 import java.io.*;
@@ -17,9 +19,9 @@ public class WebUtils {
 	public final static String METHOD_GET = "GET";
 	
 	public final static String METHOD_POST = "POST";
-	
-	private static HttpURLConnection getConnection(URL url, String method, Map<String, String> headerMap) throws IOException {
-		HttpURLConnection conn = null;
+
+    private static HttpURLConnection getConnection(URL url, String method, Map<String, String> headerMap, ExchangeEnum exchange) throws IOException {
+        HttpURLConnection conn = null;
 		if ("https".equals(url.getProtocol())) {
 			SSLContext ctx = null;
 			try {
@@ -43,11 +45,12 @@ public class WebUtils {
 		conn.setRequestMethod(method);
 		conn.setDoInput(true);
 		conn.setDoOutput(true);
-		conn.setRequestProperty("Accept", "text/xml,text/javascript,text/html");
-		conn.setRequestProperty("User-Agent", "cryptsy-java-api");
-		conn.setRequestProperty("Accept-Encoding", "gzip,deflate,sdch");
-
-		if(METHOD_POST.equalsIgnoreCase(method)){
+        if (exchange == ExchangeEnum.CRYPTSY) {
+            conn.setRequestProperty("Accept", "text/xml,text/javascript,text/html");
+            conn.setRequestProperty("User-Agent", "cryptsy-java-api");
+            conn.setRequestProperty("Accept-Encoding", "gzip,deflate,sdch");
+        }
+        if(METHOD_POST.equalsIgnoreCase(method)){
 			conn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
 		}
 
@@ -62,16 +65,16 @@ public class WebUtils {
 
         return conn;
     }
-	
-	public static String doGet(String url, Map<String, String> params) throws IOException {
-		HttpURLConnection conn = null;
+
+    public static String doGet(String url, Map<String, String> params, ExchangeEnum exchange) throws IOException {
+        HttpURLConnection conn = null;
 		String rsp = null;
 
 		try {
 			String query = buildQuery(params);
 			try {
-				conn = getConnection(buildGetUrl(url, query), METHOD_GET,null);
-			} catch (IOException e) {
+                conn = getConnection(buildGetUrl(url, query), METHOD_GET, null, exchange);
+            } catch (IOException e) {
 				throw e;
 			}
 
@@ -89,14 +92,15 @@ public class WebUtils {
 
 		return rsp;
 	}
-	
-	public static String doPost(String url, Map<String, String> params,Map<String, String> headerMap) throws IOException {
-		HttpURLConnection conn = null;
+
+
+    public static String doPost(String url, Map<String, String> params, Map<String, String> headerMap, ExchangeEnum exchange) throws IOException {
+        HttpURLConnection conn = null;
 		OutputStream out = null;
 		String rsp = null;
 		try {
-			conn = getConnection(new URL(url), METHOD_POST,headerMap);
-			String query = buildQuery(params);
+            conn = getConnection(new URL(url), METHOD_POST, headerMap, exchange);
+            String query = buildQuery(params);
 
             out = conn.getOutputStream();
             out.write(query.getBytes());
